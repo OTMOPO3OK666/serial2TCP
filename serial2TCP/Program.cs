@@ -190,7 +190,7 @@ namespace serial2TCP
     {
         static void Main(string[] args)
         {
-            //Console.OutputEncoding = Encoding.GetEncoding(1251);
+            Console.OutputEncoding = Encoding.Unicode;
             string version = "v" + System.Reflection.Assembly.GetEntryAssembly().GetName().Version;
             string nameApp = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
             Console.Title = nameApp + " " + version;
@@ -207,20 +207,22 @@ namespace serial2TCP
         static void ReceivingConfiguration()                    // получение настроек
         {
             DevSet devSet = new DevSet("settings.xml");
-            DevSet.Settings[] set = devSet.settings;
-            for (int i = 0; i < set.Length; i++)
+            if (devSet.settings != null)
             {
-                ThreadComPort threadComPort = new ThreadComPort(set[i].nameComPort,
-                    set[i].baudRate,
-                    set[i].parity,
-                    set[i].dataBits,
-                    set[i].stopBits,
-                    set[i].ipAddres,
-                    set[i].ipPort);
-                Thread myThread = new Thread(new ThreadStart(threadComPort.Go));
-                myThread.Start();
+                DevSet.Settings[] set = devSet.settings;
+                for (int i = 0; i < set.Length; i++)
+                {
+                    ThreadComPort threadComPort = new ThreadComPort(set[i].nameComPort,
+                        set[i].baudRate,
+                        set[i].parity,
+                        set[i].dataBits,
+                        set[i].stopBits,
+                        set[i].ipAddres,
+                        set[i].ipPort);
+                    Thread myThread = new Thread(new ThreadStart(threadComPort.Go));
+                    myThread.Start();
+                }
             }
-
         }
     }
 }
