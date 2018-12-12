@@ -99,12 +99,11 @@ namespace serial2TCP
                             _stream.Close();
                         }
                         catch { }
-
                         _stream = null;
                     }
                 }
         }
-        void TcpReader(IAsyncResult ar)
+        private void TcpReader(IAsyncResult ar)
         {
             try
             {

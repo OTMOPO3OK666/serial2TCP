@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ports>
+   <port name="COM116">
+	<baudrate >38400</baudrate>
+    <parity>Even</parity>
+	<databits>8</databits>
+    <stopbits>One</stopbits>
+ 	<ipaddres>127.0.0.1</ipaddres>
+    <ipport>4001</ipport>
+   </port>
+   <port name="COM119">
+	<baudrate >38400</baudrate>
+    <parity>Even</parity>
+	<databits>8</databits>
+    <stopbits>One</stopbits>
+ 	<ipaddres>127.0.0.1</ipaddres>
+    <ipport>4002</ipport>
+   </port>
+   <port name="COM120">
+	<baudrate >38400</baudrate>
+    <parity>Even</parity>
+	<databits>8</databits>
+    <stopbits>One</stopbits>
+ 	<ipaddres>127.0.0.1</ipaddres>
+    <ipport>4003</ipport>
+   </port>
+ </ports>
